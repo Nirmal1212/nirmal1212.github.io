@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="navy">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nirmalkumar Sathiamurthi — Senior Engineering Manager</title>
+<meta name="description" content="Nirmalkumar Sathiamurthi — Senior Engineering Manager. SaaS, Distributed Systems, Data Platforms. 15+ years leading high-performing engineering teams." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   CONFIGURABLE COLOR PALETTES
+   ------------------------------------------------------------
+   Each [data-theme="..."] block is a full palette. To add your
+   own theme: copy a block, rename it, tweak the variables, and
+   add one entry to the THEMES array at the bottom of the page.
+   ============================================================ */
+:root,
+[data-theme="navy"] {
+  --bg:            #0f172a;   /* page background           */
+  --bg-elevated:   rgba(30, 41, 59, 0.5);   /* hovered card surface */
+  --text:          #94a3b8;   /* body text                 */
+  --text-muted:    #64748b;   /* secondary / labels        */
+  --heading:       #e2e8f0;   /* headings & emphasis       */
+  --accent:        #5eead4;   /* links, highlights         */
+  --accent-tint:   rgba(45, 212, 191, 0.10); /* pill background      */
+  --spotlight:     rgba(29, 78, 216, 0.15);  /* cursor glow          */
+  --border:        rgba(148, 163, 184, 0.10);
+  --shadow:        0 10px 30px -15px rgba(2, 12, 27, 0.7);
+  --scrollbar:     #475569;
+}
+[data-theme="forest"] {
+  --bg:            #0b1512;
+  --bg-elevated:   rgba(26, 46, 38, 0.5);
+  --text:          #9ab8ab;
+  --text-muted:    #6b8579;
+  --heading:       #e3efe9;
+  --accent:        #7ee0a3;
+  --accent-tint:   rgba(126, 224, 163, 0.10);
+  --spotlight:     rgba(34, 120, 80, 0.16);
+  --border:        rgba(154, 184, 171, 0.10);
+  --shadow:        0 10px 30px -15px rgba(2, 20, 12, 0.7);
+  --scrollbar:     #3e5a4d;
+}
+[data-theme="plum"] {
+  --bg:            #16101f;
+  --bg-elevated:   rgba(46, 32, 64, 0.5);
+  --text:          #ab9cc4;
+  --text-muted:    #7d6f96;
+  --heading:       #ece5f7;
+  --accent:        #d9a6ff;
+  --accent-tint:   rgba(217, 166, 255, 0.10);
+  --spotlight:     rgba(147, 51, 234, 0.14);
+  --border:        rgba(171, 156, 196, 0.10);
+  --shadow:        0 10px 30px -15px rgba(15, 4, 28, 0.7);
+  --scrollbar:     #564470;
+}
+[data-theme="ember"] {
+  --bg:            #1a1210;
+  --bg-elevated:   rgba(58, 38, 32, 0.5);
+  --text:          #c0a79c;
+  --text-muted:    #8f7a70;
+  --heading:       #f5e9e3;
+  --accent:        #ffb38a;
+  --accent-tint:   rgba(255, 179, 138, 0.10);
+  --spotlight:     rgba(234, 88, 12, 0.12);
+  --border:        rgba(192, 167, 156, 0.10);
+  --shadow:        0 10px 30px -15px rgba(28, 8, 2, 0.7);
+  --scrollbar:     #6b5248;
+}
+[data-theme="paper"] {
+  --bg:            #f6f4ef;
+  --bg-elevated:   rgba(255, 255, 255, 0.75);
+  --text:          #57534e;
+  --text-muted:    #84807a;
+  --heading:       #1c1917;
+  --accent:        #0d7a6c;
+  --accent-tint:   rgba(13, 122, 108, 0.08);
+  --spotlight:     rgba(13, 122, 108, 0.07);
+  --border:        rgba(28, 25, 23, 0.08);
+  --shadow:        0 10px 30px -15px rgba(28, 25, 23, 0.15);
+  --scrollbar:     #c7c2b8;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+::selection { background: var(--accent); color: var(--bg); }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 10px; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   SPOTLIGHT — the subtle mouse-follow glow
+   ============================================================ */
+#spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--spotlight), transparent 80%);
+  transition: background 0.3s ease;
+}
+@media (max-width: 1023px), (hover: none) {
+  #spotlight { display: none; }
+}
+
+/* ============================================================
+   LAYOUT — fixed left column, scrolling right column
+   ============================================================ */
+.shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 768px)  { .shell { padding: 0 48px; } }
+@media (min-width: 1024px) {
+  .shell { display: flex; justify-content: space-between; gap: 16px; padding: 0 96px; }
+}
+
+header.sidebar { padding: 48px 0 24px; }
+@media (min-width: 1024px) {
+  header.sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 48%;
+    max-height: 100vh;
+    padding: 96px 0;
+  }
+}
+main { padding: 24px 0 96px; }
+@media (min-width: 1024px) { main { width: 52%; padding: 96px 0; } }
+
+/* ============================================================
+   SIDEBAR CONTENT
+   ============================================================ */
+.sidebar h1 {
+  color: var(--heading);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.sidebar h1 a:hover { color: var(--accent); }
+.sidebar h2 {
+  margin-top: 12px;
+  color: var(--heading);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.sidebar .tagline { margin-top: 16px; max-width: 320px; color: var(--text); }
+
+nav.site-nav { display: none; }
+@media (min-width: 1024px) { nav.site-nav { display: block; margin-top: 64px; } }
+.site-nav ul { list-style: none; }
+.site-nav a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.site-nav a .line {
+  width: 32px;
+  height: 1px;
+  background: var(--text-muted);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.site-nav a:hover, .site-nav a.active { color: var(--heading); }
+.site-nav a:hover .line, .site-nav a.active .line { width: 64px; background: var(--heading); }
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+  list-style: none;
+}
+.social a { color: var(--text-muted); transition: color 0.2s ease, transform 0.2s ease; display: block; }
+.social a:hover { color: var(--accent); transform: translateY(-2px); }
+.social svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+section { margin-bottom: 96px; scroll-margin-top: 80px; }
+section:last-of-type { margin-bottom: 0; }
+
+.section-heading {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 -24px 16px;
+  padding: 20px 24px;
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--heading);
+}
+@media (min-width: 1024px) {
+  .section-heading {
+    position: static;
+    margin: 0 0 16px;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+}
+
+.about p { margin-bottom: 16px; }
+.about strong, .hl { color: var(--heading); font-weight: 500; }
+.about a, .inline-link { color: var(--accent); font-weight: 500; }
+.about a:hover, .inline-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Card list (experience / awards) with group-dim hover ---- */
+.cards { list-style: none; }
+.card {
+  position: relative;
+  display: grid;
+  gap: 4px 16px;
+  padding: 20px 0;
+  transition: opacity 0.25s ease;
+}
+@media (min-width: 640px) {
+  .card { grid-template-columns: 130px 1fr; padding: 24px; margin: 0 -24px; border-radius: 8px; }
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+@media (min-width: 1024px) {
+  .cards:hover .card { opacity: 0.5; }
+  .cards .card:hover { opacity: 1; }
+  .card:hover::before {
+    background: var(--bg-elevated);
+    border-color: var(--border);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(148,163,184,0.06);
+    backdrop-filter: blur(4px);
+  }
+}
+.card .when {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 3px;
+  white-space: nowrap;
+}
+.card h3 { font-size: 1rem; font-weight: 500; color: var(--heading); line-height: 1.4; }
+.card h3 a { transition: color 0.2s ease; }
+.card:hover h3 a, .card:hover h3 { color: var(--accent); }
+.card .org { color: var(--heading); }
+.card .role-prev { font-size: 0.9rem; color: var(--text-muted); margin-top: 2px; }
+.card .desc { margin-top: 8px; font-size: 0.92rem; }
+.card .desc li { margin: 6px 0 0 18px; }
+.card ul.desc { list-style: disc; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; list-style: none; }
+.tags li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.view-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  color: var(--heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.view-resume .arrow { transition: transform 0.2s ease; }
+.view-resume:hover { color: var(--accent); }
+.view-resume:hover .arrow { transform: translate(4px, -2px); }
+
+/* ---- Skills ---- */
+.skill-grid { display: grid; gap: 18px; }
+@media (min-width: 640px) { .skill-grid { grid-template-columns: 1fr 1fr; } }
+.skill-grid h3 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+.skill-grid p { font-size: 0.92rem; }
+
+footer.colophon {
+  margin-top: 96px;
+  max-width: 480px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+footer.colophon a { color: var(--text); font-weight: 500; }
+footer.colophon a:hover { color: var(--accent); }
+
+/* ============================================================
+   THEME SWITCHER
+   ============================================================ */
+.theme-dock {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+.theme-dock .label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-left: 4px;
+}
+.swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  padding: 0;
+}
+.swatch:hover { transform: scale(1.18); }
+.swatch[aria-pressed="true"] { border-color: var(--heading); transform: scale(1.12); }
+
+/* ============================================================
+   MOTION SAFETY
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  #spotlight { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="spotlight" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ======================= LEFT / SIDEBAR ======================= -->
+  <header class="sidebar">
+    <div>
+      <h1><a href="#about">Nirmalkumar Sathiamurthi</a></h1>
+      <h2>Senior Engineering Manager</h2>
+      <p class="tagline">I build and scale engineering teams behind SaaS platforms, distributed systems, and data pipelines.</p>
+
+      <nav class="site-nav" aria-label="In-page navigation">
+        <ul>
+          <li><a href="#about" class="nav-link active"><span class="line"></span>About</a></li>
+          <li><a href="#experience" class="nav-link"><span class="line"></span>Experience</a></li>
+          <li><a href="#skills" class="nav-link"><span class="line"></span>Skills</a></li>
+          <li><a href="#recognition" class="nav-link"><span class="line"></span>Recognition</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <ul class="social" aria-label="Contact links">
+      <li>
+        <a href="https://www.linkedin.com/in/nirmalkumarsathiamurthi" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:nirmalkumar1212@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M12 12.713L.015 3h23.97L12 12.713zM12 15.287L0 5.562V21h24V5.562l-12 9.725z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="tel:+918667813712" aria-label="Phone">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <!-- ======================= RIGHT / CONTENT ======================= -->
+  <main>
+
+    <section id="about" class="about" aria-label="About">
+      <h2 class="section-heading">About</h2>
+      <p>
+        I'm a Senior Engineering Manager with <strong>15+ years of experience</strong> leading high-performing
+        engineering teams and scaling SaaS platforms, distributed systems, and data pipelines across the
+        <strong>CRM and ITSM</strong> domains. Today I manage <strong>20+ engineers across multiple squads</strong>
+        at <a href="https://www.freshworks.com" target="_blank" rel="noreferrer">Freshworks</a>, supporting
+        25K+ customers and ~$400M ARR systems.
+      </p>
+      <p>
+        My track record is built on measurable impact: <strong>30x performance improvements</strong>, a
+        <strong>~30% reduction in developer cycle time</strong> through AI-native engineering workflows, and
+        <strong>$200K–$400K in annual savings</strong> from automation and process optimization. I championed an
+        AI-driven SDLC transformation across 10+ ITSM squads — scaling spec-first development and automating test
+        generation, LLD/spec creation, and integration testing with AI-assisted platforms.
+      </p>
+      <p>
+        Beyond delivery, I care deeply about people and process: incident management, SLA governance, DevOps and
+        CI/CD, and cross-functional collaboration with Product, Support, and Program Management. I've scaled teams,
+        developed leaders (<strong>9+ promotions</strong>), and run high-scale data platforms — TB-scale systems
+        with <strong>$1M+ in savings</strong> — serving tens of thousands of customers worldwide.
+      </p>
+    </section>
+
+    <section id="experience" aria-label="Work experience">
+      <h2 class="section-heading">Experience</h2>
+      <ol class="cards">
+
+        <li class="card">
+          <div class="when">Jul 2025 — Present</div>
+          <div>
+            <h3>Senior Engineering Manager · <span class="org">Freshworks</span></h3>
+            <p class="role-prev">Engineering Manager · Dec 2022 — Jun 2025</p>
+            <ul class="desc">
+              <li>Scaled a multi-squad ITSM/ITPM platform serving 25K+ customers and ~$400M ARR, leading 20+ engineers across 3 squads.</li>
+              <li>Championed AI-driven SDLC transformation across 10 squads — ~30% faster developer cycle time via spec-first development and automated test generation, LLD/spec creation, and integration testing.</li>
+              <li>Delivered $200K–$400K annual savings by eliminating manual localization, freeing 1000+ engineering days/year across 48 teams.</li>
+              <li>Improved L4 SLA compliance from 40% → 69% with standardized incident management across 10 teams; cut support backlog 40% in 3 months.</li>
+              <li>Lifted dev testing velocity 60% and QA automation velocity 50% with AI-powered workflows; standardized PR metrics across 10 squads.</li>
+              <li>As EM: delivered 30x faster data ingestion via microservices, cut processing latency 76%, raised automation stability from 73% → ~98%, reduced L4 backlog 82%, and improved team productivity 26%.</li>
+              <li>Hired 10 engineers (IC1–IC4), enabled 9+ promotions, and ran an org-wide hackathon with 1500+ participants converting 74 ideas into roadmap deliverables.</li>
+            </ul>
+            <ul class="tags">
+              <li>ITSM / CRM</li><li>AI-native SDLC</li><li>Microservices</li><li>Incident Mgmt</li><li>CI/CD</li><li>Team Scaling</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="card">
+          <div class="when">Apr 2021 — Dec 2022</div>
+          <div>
+            <h3>Director of Engineering · <span class="org">C1X Adtech</span></h3>
+            <p class="role-prev">Senior Engineering Manager · May 2018 — Mar 2021</p>
+            <ul class="desc">
+              <li>Scaled and led a 15+ engineer organization; improved hiring outcomes and converted 66% of interns to full-time.</li>
+              <li>Delivered the Customer Data Platform roadmap with integrations across Google, Meta, TikTok, Twitter, and Yahoo Japan.</li>
+              <li>Drove real-time data platform innovation on distributed systems (Druid, Flink); architected scalable backends for high-volume analytics.</li>
+              <li>As Sr. EM: architected a TB-scale data platform for Nike spanning web, mobile, and retail; cut infrastructure costs 60%+ for $1M+ annual savings; ensured zero-downtime GDPR compliance; led distributed US–India teams on Spark/Airflow pipelines.</li>
+            </ul>
+            <ul class="tags">
+              <li>CDP</li><li>Druid</li><li>Flink</li><li>Spark</li><li>Airflow</li><li>GDPR</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="card">
+          <div class="when">Sep 2016 — Apr 2018</div>
+          <div>
+            <h3>Technical Manager · <span class="org">C1X Adtech</span></h3>
+            <ul class="desc">
+              <li>Owned end-to-end delivery from requirements to production for backend and data systems.</li>
+              <li>Built scalable ETL pipelines (Spark, Airflow) powering user analytics; improved reliability of systems handling 300M+ impressions.</li>
+            </ul>
+            <ul class="tags"><li>ETL</li><li>Spark</li><li>Airflow</li><li>AdTech</li></ul>
+          </div>
+        </li>
+
+        <li class="card">
+          <div class="when">Jun 2014 — Aug 2016</div>
+          <div>
+            <h3>Senior Software Engineer · <span class="org">Mad Street Den (vue.ai)</span></h3>
+            <ul class="desc">
+              <li>Developed AI/ML SDKs, cutting customer onboarding to under 8 hours.</li>
+              <li>Contributed to scaling datasets past 1M+ images and the company's growth to a $20M Series A.</li>
+            </ul>
+            <ul class="tags"><li>AI/ML</li><li>SDKs</li><li>Computer Vision</li></ul>
+          </div>
+        </li>
+
+        <li class="card">
+          <div class="when">May 2012 — May 2014</div>
+          <div>
+            <h3>Co-founder / CTO · <span class="org">Insanelabs</span></h3>
+            <ul class="desc">
+              <li>Built and launched SaaS products; delivered solutions to 10+ global clients across AR, mobile, and IoT. Featured in Economic Times (2014).</li>
+            </ul>
+            <ul class="tags"><li>SaaS</li><li>AR</li><li>IoT</li><li>Startup</li></ul>
+          </div>
+        </li>
+
+        <li class="card">
+          <div class="when">Jul 2011 — May 2012</div>
+          <div>
+            <h3>Software Engineer · <span class="org">Ford Technologies</span></h3>
+            <ul class="desc">
+              <li>Developed enterprise infrastructure tools used by global teams.</li>
+            </ul>
+            <ul class="tags"><li>Enterprise Tooling</li></ul>
+          </div>
+        </li>
+
+      </ol>
+
+      <a class="view-resume" href="https://www.linkedin.com/in/nirmalkumarsathiamurthi" target="_blank" rel="noreferrer">
+        View Full Résumé <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+    <section id="skills" aria-label="Skills">
+      <h2 class="section-heading">Skills</h2>
+      <div class="skill-grid">
+        <div><h3>Leadership &amp; Management</h3><p>Engineering leadership, hiring, mentoring, performance management, org design, OKRs, program execution.</p></div>
+        <div><h3>Architecture</h3><p>Distributed systems, microservices, scalable system design, data platforms.</p></div>
+        <div><h3>Cloud &amp; Data</h3><p>AWS, Spark, Databricks, Airflow, Elasticsearch, data pipelines, batch processing.</p></div>
+        <div><h3>DevOps &amp; Practices</h3><p>CI/CD, observability, incident management, SLA governance, performance optimization.</p></div>
+        <div><h3>Programming</h3><p>Java, Python, Node.js.</p></div>
+        <div><h3>Databases</h3><p>MySQL, PostgreSQL.</p></div>
+      </div>
+    </section>
+
+    <section id="recognition" aria-label="Recognition and education">
+      <h2 class="section-heading">Recognition &amp; Education</h2>
+      <ol class="cards">
+        <li class="card">
+          <div class="when">2023 — 2025</div>
+          <div>
+            <h3>Freshworks Awards</h3>
+            <ul class="desc">
+              <li>Exceed Expectations — Champion Rating (2023, 2024)</li>
+              <li>Above &amp; Beyond Silver Award — Freshworks CRM (2025)</li>
+              <li>Q2 &amp; Q3 2023 R&amp;R Winner — Freshworks CRM</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card">
+          <div class="when">2013 — 2014</div>
+          <div>
+            <h3>Press &amp; Speaking</h3>
+            <ul class="desc">
+              <li>Featured in Economic Times as Co-founder/CTO of Insanelabs (2014)</li>
+              <li>Speaker — Google DevFest, Chennai: AR &amp; Gamification (2013)</li>
+            </ul>
+          </div>
+        </li>
+        <li class="card">
+          <div class="when">Education</div>
+          <div>
+            <h3>B.E. Electronics &amp; Communication Engineering</h3>
+            <p class="desc">SSN College of Engineering, Anna University, Chennai</p>
+          </div>
+        </li>
+      </ol>
+
+      <footer class="colophon">
+        <p>Designed in the spirit of <a href="https://brittanychiang.com" target="_blank" rel="noreferrer">brittanychiang.com</a>. Built with vanilla HTML, CSS, and JavaScript — no frameworks, no build step.</p>
+      </footer>
+    </section>
+
+  </main>
+</div>
+
+<!-- ======================= THEME SWITCHER ======================= -->
+<div class="theme-dock" role="group" aria-label="Color theme">
+  <span class="label">Theme</span>
+  <!-- swatches injected by JS -->
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — add/remove themes here (must match a CSS block above)
+   ============================================================ */
+const THEMES = [
+  { id: "navy",   swatch: "#0f172a", dot: "#5eead4" },
+  { id: "forest", swatch: "#0b1512", dot: "#7ee0a3" },
+  { id: "plum",   swatch: "#16101f", dot: "#d9a6ff" },
+  { id: "ember",  swatch: "#1a1210", dot: "#ffb38a" },
+  { id: "paper",  swatch: "#f6f4ef", dot: "#0d7a6c" },
+];
+
+/* ---------- Spotlight: subtle mouse-follow glow ---------- */
+const spotlight = document.getElementById("spotlight");
+let raf = null, mx = 0, my = 0;
+window.addEventListener("mousemove", (e) => {
+  mx = e.clientX; my = e.clientY;
+  if (!raf) {
+    raf = requestAnimationFrame(() => {
+      spotlight.style.setProperty("--mx", mx + "px");
+      spotlight.style.setProperty("--my", my + "px");
+      raf = null;
+    });
+  }
+}, { passive: true });
+
+/* ---------- Theme switcher ---------- */
+const dock = document.querySelector(".theme-dock");
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch { /* sandboxed preview */ } },
+};
+const saved = store.get("portfolio-theme");
+if (saved && THEMES.some(t => t.id === saved)) {
+  document.documentElement.setAttribute("data-theme", saved);
+}
+THEMES.forEach(({ id, swatch, dot }) => {
+  const btn = document.createElement("button");
+  btn.className = "swatch";
+  btn.style.background = `radial-gradient(circle at 30% 30%, ${dot} 0 35%, ${swatch} 40%)`;
+  btn.setAttribute("aria-label", `Switch to ${id} theme`);
+  btn.setAttribute("aria-pressed", String(document.documentElement.getAttribute("data-theme") === id));
+  btn.addEventListener("click", () => {
+    document.documentElement.setAttribute("data-theme", id);
+    store.set("portfolio-theme", id);
+    dock.querySelectorAll(".swatch").forEach(s => s.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
+  });
+  dock.appendChild(btn);
+});
+
+/* ---------- Scroll spy: highlight active nav link ---------- */
+const links = document.querySelectorAll(".nav-link");
+const sections = [...links].map(a => document.querySelector(a.getAttribute("href")));
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id));
+    }
+  });
+}, { rootMargin: "-40% 0px -55% 0px" });
+sections.forEach(s => s && spy.observe(s));
+</script>
+</body>
+</html>
